@@ -14,7 +14,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { CarrosdetailsComponent } from './components/carros/carrosdetails/carrosdetails.component';
 import { ListagemCarrosComponent } from './components/carros/listagem-carros/listagem-carros.component';
-
+import { LivrosdetailsComponent } from './components/livros/livrosdetails/livrosdetails.component';
+import { ListagemLivrosComponent } from './components/livros/listagem-livros/listagem-livros.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,9 @@ import { ListagemCarrosComponent } from './components/carros/listagem-carros/lis
     IndexComponent,
     LoginComponent,
     CarrosdetailsComponent,
-    ListagemCarrosComponent
+    ListagemCarrosComponent,
+    ListagemLivrosComponent,
+    LivrosdetailsComponent
   ],
   imports: [
     BrowserModule,
