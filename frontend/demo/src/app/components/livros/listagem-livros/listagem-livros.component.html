@@ -1,6 +1,6 @@
 <div class="container">
     <h3 class="alert alert-primary">Listagem de livros!</h3>
-    <td> <button class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button> </td>
+    <button class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>
     <div class="row">
         <div class="col-lg-12">
             <table class="table table-striped">
@@ -19,17 +19,16 @@
                         <td> {{ livro.titulo }} </td>
                         <td> {{ livro.autor }} </td>
                         <td> {{ livro.ano }} </td>
-                        <td> <button class="btn btn-primary" (click)="editar(modal1, livro, i)">Editar</button> </td>
-                        <td> <button class="btn btn-danger" (click)="excluir(livro)">Deletar</button> </td>
+                        <td>
+                            <button class="btn btn-primary mx-2" (click)="editar(modal1, livro, i)">Editar</button>
+                            <button class="btn btn-danger mx-2" (click)="excluir(livro)">Deletar</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-
-
         </div>
     </div>
 </div>
-
 
 <ng-template #modal1 let-modal>
     <div class="modal-header">
@@ -38,7 +37,6 @@
     </div>
     <div class="modal-body">
         <app-livrosdetails [livro]="livroSelecionadoParaEdicao" (retorno)="addOuEditarLivro($event)"></app-livrosdetails>
-        
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
