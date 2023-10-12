@@ -8,8 +8,9 @@
                     <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Titulo</th>
-                        <th scope="col">autor/th>
+                        <th scope="col">autor</th>
                         <th scope="col">ano</th>
+                        <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,6 +20,7 @@
                         <td> {{ livro.autor }} </td>
                         <td> {{ livro.ano }} </td>
                         <td> <button class="btn btn-primary" (click)="editar(modal1, livro, i)">Editar</button> </td>
+                        <td> <button class="btn btn-danger" (click)="excluir(livro)">Deletar</button> </td>
                     </tr>
                 </tbody>
             </table>

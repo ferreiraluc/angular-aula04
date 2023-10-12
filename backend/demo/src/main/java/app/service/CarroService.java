@@ -49,4 +49,20 @@ public class CarroService {
         carro.setAno(carroDTO.getAno());
         return carro;
     }
+
+    public CarroDTO update(Long id, CarroDTO carroDTO){
+        Carro carro = carroRepository.findById(id).orElseThrow(() -> new RuntimeException("Carro não encontrado"));
+
+        carro.setNome(carroDTO.getNome());
+        carro.setAno(carroDTO.getAno());
+
+        Carro carroAtualizado = carroRepository.save(carro);
+
+        return this.toCarroDTO(carroAtualizado);
+    }
+
+    public void delete(Long id){
+        Carro carro = carroRepository.findById(id).orElseThrow(() -> new RuntimeException("Carro não encontrado"));
+        carroRepository.delete(carro);
+    }
 }

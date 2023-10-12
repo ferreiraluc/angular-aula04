@@ -63,6 +63,20 @@ editar(modal: any, livro: Livro, indice: number) {
   this.modalService.open(modal, { size: 'lg' });
 }
 
+excluir(livro: Livro) {
+  if (confirm('Deseja realmente excluir o livro ' + livro.titulo + '?')) {
+    this.livroService.delete(livro.id).subscribe({
+      next: () => {
+        this.listAll();
+      },
+      error: erro => {
+        alert('Erro ao excluir livro! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+  } 
+} 
+
   addOuEditarLivro(livro: Livro) {
     this.listAll();
     this.modalService.dismissAll();

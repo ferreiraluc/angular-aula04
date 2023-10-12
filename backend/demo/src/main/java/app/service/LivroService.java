@@ -48,4 +48,22 @@ public class LivroService {
         livro.setAno(livroDTO.getAno());
         return livro;
     }
+
+    public LivroDTO update(Long id, LivroDTO livroDTO){
+        Livro livro = livroRepository.findById(id).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+
+        livro.setTitulo(livroDTO.getTitulo());
+        livro.setAutor(livroDTO.getAutor());
+
+        Livro livroAtualizado = livroRepository.save(livro);
+
+        return this.toLivroDTO(livroAtualizado);
+    }
+
+
+
+    public void delete(Long id){
+        Livro livro = livroRepository.findById(id).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+        livroRepository.delete(livro);
+    }
 }

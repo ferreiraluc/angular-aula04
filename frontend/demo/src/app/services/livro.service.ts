@@ -23,6 +23,14 @@ export class LivroService {
       exemploErro(): Observable<Livro[]> {
         return this.http.get<Livro[]>(this.API + '/erro');
       }
+
+      update(livro: Livro): Observable<Livro> {
+        return this.http.put<Livro>(this.API, livro);
+      }
+
+      delete(id: number): Observable<any> {
+        return this.http.delete(this.API + '/' + id);
+      }
     
 
     

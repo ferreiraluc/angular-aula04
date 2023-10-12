@@ -26,6 +26,14 @@ export class PessoaService {
     return this.http.get<Pessoa[]>(this.API + '/erro');
   }
 
+  update(pessoa: Pessoa): Observable<Pessoa> {
+    return this.http.put<Pessoa>(this.API, pessoa);
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(this.API + '/' + id);
+  }
+
 
 
   /*

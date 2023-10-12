@@ -52,6 +52,8 @@ export class PessoaslistComponent {
       }
     });
 
+
+
   }
 
 
@@ -67,6 +69,20 @@ export class PessoaslistComponent {
 
     this.modalService.open(modal, { size: 'sm' });
   }
+
+  excluir(pessoa: Pessoa) {
+    if (confirm('Deseja realmente excluir a pessoa ' + pessoa.nome + '?')) {
+      this.pessoaService.delete(pessoa.id).subscribe({
+        next: () => {
+          this.listAll();
+        },
+        error: erro => {
+          alert('Erro ao excluir livro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    } 
+  } 
 
   addOuEditarPessoa(pessoa: Pessoa) {
 

@@ -39,7 +39,7 @@ export class CarroService {
         return this.http.put<Carro>(url, carro);
     }
 
-    deleteCarro(id: number): Observable<Carro> {
+    delete(id: number): Observable<Carro> {
         const url = `${this.API}/${id}`;
         return this.http.delete<Carro>(url);
     }

@@ -37,6 +37,26 @@ public class LivroController {
         }
     }
 
+    @PutMapping("/{id}")
+    private ResponseEntity<LivroDTO> update(@PathVariable Long id, @RequestBody LivroDTO livroDTO){
+        try {
+            LivroDTO livroAtualizado = livroService.update(id, livroDTO);
+            return new ResponseEntity<>(livroAtualizado, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    private ResponseEntity<Void> delete(@PathVariable Long id){
+        try {
+            livroService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @GetMapping("erro")
     private ResponseEntity<List<LivroDTO>> exemploErro() {
         return new ResponseEntity<>(null , HttpStatus.BAD_REQUEST);

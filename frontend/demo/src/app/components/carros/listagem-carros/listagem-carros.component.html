@@ -18,6 +18,7 @@
                         <td> {{ carro.nome }} </td>
                         <td> {{ carro.ano }} </td>
                         <td> <button class="btn btn-primary" (click)="editar(modal1, carro, i)">Editar</button> </td>
+                        <td> <button class="btn btn-danger" (click)="excluir(carro)">Deletar</button> </td>
                     </tr>
                 </tbody>
             </table>

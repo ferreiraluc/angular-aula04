@@ -58,5 +58,20 @@ export class ListagemCarrosComponent {
 
       this.modalService.dismissAll();
     }
+
+    excluir(carro: Carro) {
+      if (confirm('Deseja realmente excluir o carro ' + carro.nome + '?')) {
+        this.carroService.delete(carro.id).subscribe({
+          next: () => {
+            this.listAll();
+          },
+          error: erro => {
+            alert('Erro ao excluir livro! Observe o erro no console!');
+            console.error(erro);
+          }
+        });
+      } 
+    } 
+    
   }
 

@@ -50,4 +50,20 @@ public class PessoaService {
 		return pessoa;
 	}
 
+	public PessoaDTO update(Long id, PessoaDTO pessoaDTO) {
+		Pessoa pessoa = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada"));
+
+		pessoa.setNome(pessoaDTO.getNome());
+		pessoa.setIdade(pessoaDTO.getIdade());
+
+		Pessoa pessoaAtualizada = pessoaRepository.save(pessoa);
+
+		return this.toPessoaDTO(pessoaAtualizada);
+	}
+
+	public void delete(Long id) {
+		Pessoa pessoa = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada"));
+		pessoaRepository.delete(pessoa);
+	}
+
 }
